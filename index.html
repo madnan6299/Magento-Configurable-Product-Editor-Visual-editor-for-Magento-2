@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magento Configurable Product Editor</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Magento Configurable Product Editor</h1>
+    <div class="subtitle">Import Magento spConfig JSON → Visual edit → Export compatible JSON</div>
+  </div>
+  <div class="toolbar">
+    <button type="button" class="secondary" onclick="loadSample()">Load Sample</button>
+    <button type="button" class="secondary" onclick="syncIndex()">Sync Index</button>
+    <button type="button" onclick="copyOutput()">Copy Output</button>
+    <button type="button" onclick="exportJson()">Download JSON</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- LEFT: Import & Stats -->
+  <aside class="panel">
+    <div class="panel-header">
+      <h2>Import</h2>
+    </div>
+    <div class="panel-body">
+      <p style="font-size:12px;color:var(--muted);margin-top:0">
+        Paste Magento JSON. Options support compound format: <code>114 | 6.48 | extra</code>
+        (pure ID in index, value shown in UI).
+      </p>
+
+      <textarea id="jsonInput" placeholder='Paste Magento JSON here…'></textarea>
+
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <button type="button" onclick="loadFromTextarea()">Parse &amp; Load</button>
+        <label class="btn secondary" style="display:inline-block;cursor:pointer">
+          Upload File
+          <input type="file" id="fileInput" accept=".json,application/json" hidden>
+        </label>
+      </div>
+
+      <hr style="border-color:var(--border);margin:16px 0">
+
+      <h2 style="font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em">Stats</h2>
+      <div id="stats">
+        <div class="empty-state"><p>No data loaded</p></div>
+      </div>
+
+      <h2 style="font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;margin-top:16px">Validation</h2>
+      <div id="validation" class="validation-list">
+        <div class="val-item warn">Load JSON to validate</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CENTER: Visual Editor -->
+  <main class="panel">
+    <div class="panel-header">
+      <h2>Visual Editor</h2>
+      <p style="margin:4px 0 0;font-size:12px;color:var(--muted)">
+        Drag attributes/options to reorder · Hide options (excluded from export) · Edit labels live
+      </p>
+    </div>
+    <div class="panel-body">
+      <div class="tabs center-tabs">
+        <button type="button" class="tab active" data-tab="editor">List Editor</button>
+        <button type="button" class="tab" data-tab="graph">Relation Graph (n8n)</button>
+        <button type="button" class="tab" data-tab="matrix">Matrix</button>
+      </div>
+
+      <div id="tab-editor" class="tab-panel active">
+        <div id="editor">
+          <div class="empty-state">
+            <p><strong>Get started</strong></p>
+            <p>Click <em>Load Sample</em> or paste your Magento JSON and press <em>Parse &amp; Load</em></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-graph" class="tab-panel">
+        <div id="graph" class="graph-container"></div>
+      </div>
+
+      <div id="tab-matrix" class="tab-panel">
+        <div id="matrix"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- RIGHT: Output -->
+  <aside class="panel">
+    <div class="panel-header">
+      <h2>Magento Output JSON</h2>
+      <p style="margin:4px 0 0;font-size:12px;color:var(--muted)">
+        Live Magento-compatible output (hidden options &amp; their products removed)
+      </p>
+    </div>
+    <div class="panel-body">
+      <textarea id="outputJson" readonly placeholder="Edited JSON will appear here…"></textarea>
+    </div>
+  </aside>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="js/magento-core.js"></script>
+<script src="js/graph.js"></script>
+<script src="js/editor.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

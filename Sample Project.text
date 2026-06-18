@@ -1,0 +1,124 @@
+Project Title (for CV / GitHub)
+Magento Configurable Product Editor — Visual editor for Magento 2 spConfig JSON
+
+One-Line Summary
+Browser-based tool to import, visually edit, validate, and export Magento 2 configurable product configuration JSON — no backend required.
+
+CV Achievement Bullets (pick 2–4)
+Use these as bullet points under Projects or Experience:
+
+Built a client-side Magento 2 configurable product editor that parses x-magento-init / #product_addtocart_form JSON, enables visual editing of attributes and options, and exports Magento-compatible output for direct use in storefront configuration.
+
+Designed a modular JavaScript architecture (magento-core, editor, graph, app) to handle spConfig parsing, index synchronization, validation, and live export — supporting complex product catalogs with thousands of variant combinations.
+
+Implemented an interactive n8n-style relation graph (SVG) with pan/zoom, drag-to-connect option relations, edge inspection, and smart orphan pruning when attributes or options are removed.
+
+Added drag-and-drop reordering, compound option ID support (114 | 6.48 | extra), hide/show options, cross-attribute matrix view, and real-time validation to reduce manual JSON editing errors for e-commerce teams.
+
+Delivered a zero-dependency deployment (HTML/CSS/vanilla JS + SortableJS) suitable for GitHub Pages — enabling merchants and developers to edit configurable product data without Magento admin access.
+
+CV Project Block (compact format)
+Magento Configurable Product Editor | Personal Project | [GitHub URL]
+Vanilla JavaScript · Magento 2 · SVG · SortableJS
+
+Developed a visual editor for Magento 2 configurable product spConfig JSON. Features include import/export, live validation, drag-and-drop attribute/option reordering, compound option parsing, cross-attribute combination matrix, and an n8n-style interactive relation graph for editing variant dependencies. Handles large real-world catalogs (4,500+ lines of sample JSON) with smart removal and orphan pruning logic.
+
+LinkedIn / About Paragraph
+I developed a Magento Configurable Product Editor — a browser-based tool for e-commerce developers and catalog managers who need to edit Magento 2 configurable product JSON without touching raw files manually. The app imports Magento spConfig data, provides three editing modes (list editor, relation graph, combination matrix), validates structure in real time, and exports clean JSON compatible with Magento’s #product_addtocart_form format. Built with vanilla JavaScript in a modular architecture, it includes advanced features like compound option IDs, smart attribute removal with orphan pruning, and an SVG-based workflow graph inspired by n8n.
+
+GitHub README (copy-paste ready)
+# Magento Configurable Product Editor
+A browser-based visual editor for **Magento 2 configurable product** `spConfig` JSON.  
+Import → edit visually → export Magento-compatible JSON. No server, no build step.
+![Tech](https://img.shields.io/badge/Vanilla%20JS-ES6+-yellow)
+![Magento](https://img.shields.io/badge/Magento%202-spConfig-orange)
+![License](https://img.shields.io/badge/License-MIT-blue)
+## Problem
+Editing Magento configurable product configuration means working with large, nested JSON structures (`#product_addtocart_form` → `configurable` → `spConfig`). Manual edits are error-prone — especially for attributes, options, product index combinations, and variant relations.
+## Solution
+This tool provides a **visual, validated editing workflow** for Magento spConfig data:
+- **Import** — paste JSON or upload a `.json` file
+- **Edit** — list view, relation graph, or combination matrix
+- **Validate** — real-time structure and index checks
+- **Export** — live Magento-compatible JSON (copy or download)
+## Features
+### List Editor
+- Drag-and-drop reorder of attributes and options (SortableJS)
+- Edit labels, codes, positions, and compound option IDs
+- Hide options (excluded from export) or remove them with index cleanup
+- Smart Remove — delete an attribute and auto-prune orphan options
+### Relation Graph (n8n-style)
+- SVG-based interactive graph of option dependencies
+- Pan, zoom, drag output → input ports to add relations
+- Inspector panel for editing nodes, edges, and attributes
+- Edge weights reflect number of product combinations
+### Combination Matrix
+- Cross-tab view of two attributes
+- Shows which option pairs exist in the product index
+### Magento-Specific Logic
+- Supports compound option format: `114 | 6.48 | extra meta`
+- Pure ID used in index; display value shown in UI
+- Rebuilds `options.products` from index on sync
+- Validates index vs. option product lists
+## Tech Stack
+| Layer | Technology |
+|-------|------------|
+| Core | Vanilla JavaScript (ES6+), modular IIFE pattern |
+| UI | HTML5, CSS3 (dark theme) |
+| Drag & Drop | [SortableJS](https://sortablejs.github.io/Sortable/) |
+| Graph | Custom SVG renderer (no D3/Cytoscape) |
+| Backend | None — runs entirely in the browser |
+## Project Structure
+magento-config-editor/ ├── index.html # Main app shell ├── css/styles.css # UI styling ├── js/ │ ├── magento-core.js # spConfig parsing, validation, export logic │ ├── editor.js # List editor & matrix rendering │ ├── graph.js # SVG relation graph editor │ └── app.js # Application state & orchestration └── magento_sample_json.json
+
+## Quick Start
+1. Clone the repo
+2. Open `index.html` in a browser (or serve locally)
+3. Click **Load Sample** or paste your Magento JSON
+4. Edit in List / Graph / Matrix tabs
+5. **Copy Output** or **Download JSON**
+> Works with JSON exported from Magento 2 configurable products (`x-magento-init` / `#product_addtocart_form` structure).
+## Use Cases
+- Catalog managers cleaning up configurable product options
+- Developers debugging spConfig / index mismatches
+- Migrating or restructuring variant combinations
+- Prototyping attribute relations before Magento admin changes
+## Author
+[Your Name] — [LinkedIn] · [Portfolio]
+## License
+MIT
+Skills to List on CV (from this project)
+Category	Skills
+Frontend
+Vanilla JavaScript, DOM manipulation, SVG, responsive UI
+E-commerce
+Magento 2, configurable products, spConfig, product index
+Architecture
+Modular JS, state management, separation of concerns
+UX
+Drag-and-drop, visual graph editing, real-time validation
+Data
+JSON parsing, graph algorithms, orphan pruning, data integrity
+Suggested GitHub Repo Settings
+Field	Suggestion
+Repo name
+magento-configurable-product-editor
+Description
+Visual browser editor for Magento 2 configurable product spConfig JSON — import, edit, validate, export
+Topics
+magento2, magento, ecommerce, configurable-product, json-editor, javascript, visual-editor, svg, frontend
+Website
+GitHub Pages URL (after you enable Pages on index.html)
+Optional: Quantified Impact (if true for you)
+Add numbers only if they apply to your situation:
+
+Handles catalogs with 1,000+ product combinations (sample file is 4,500+ lines)
+Reduces manual JSON editing time for configurable product updates
+Zero install — works offline after first load
+Before You Publish on GitHub
+Add a README.md (use the content above).
+Add a LICENSE file (MIT is common for portfolio projects).
+Remove or anonymize any real client/product data in sample JSON if needed.
+Enable GitHub Pages (Settings → Pages → deploy from main / root).
+Add a screenshot or short GIF of the List Editor, Graph, and Matrix tabs.
+If you want, I can generate the README.md and LICENSE files directly in your project folder so it’s ready to push to GitHub.
