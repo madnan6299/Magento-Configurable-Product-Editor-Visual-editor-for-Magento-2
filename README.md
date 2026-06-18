@@ -1,3 +1,4 @@
+<img width="1918" height="867" alt="image" src="https://github.com/user-attachments/assets/c670b20e-b93f-46c4-acfa-fe3a1300ee5a" />
 # Magento-Configurable-Product-Editor-Visual-editor-for-Magento-2
 Browser-based tool to import, visually edit, validate, and export Magento 2 configurable product configuration JSON — no backend required.
 
