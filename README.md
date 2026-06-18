@@ -58,3 +58,30 @@ This tool provides a **visual, validated editing workflow** for Magento spConfig
 | Backend | None — runs entirely in the browser |
 
 ## Project Structure
+
+magento-config-editor/ ├── index.html # Main app shell ├── css/styles.css # UI styling ├── js/ │ ├── magento-core.js # spConfig parsing, validation, export logic │ ├── editor.js # List editor & matrix rendering │ ├── graph.js # SVG relation graph editor │ └── app.js # Application state & orchestration └── magento_sample_json.json
+
+## Quick Start
+
+1. Clone the repo
+2. Open `index.html` in a browser (or serve locally)
+3. Click **Load Sample** or paste your Magento JSON
+4. Edit in List / Graph / Matrix tabs
+5. **Copy Output** or **Download JSON**
+
+> Works with JSON exported from Magento 2 configurable products (`x-magento-init` / `#product_addtocart_form` structure).
+
+## Use Cases
+
+- Catalog managers cleaning up configurable product options
+- Developers debugging spConfig / index mismatches
+- Migrating or restructuring variant combinations
+- Prototyping attribute relations before Magento admin changes
+
+## Author
+
+Muhammad Adnan — https://www.linkedin.com/in/madnan6299 · +923007306299
+
+## License
+
+MIT
